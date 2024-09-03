@@ -13,6 +13,6 @@ let package = Package(
         .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.0.0")
     ],
     targets: [
-        .target(name: "SwiftUIImageViewer", dependencies: []),
+        .target(name: "SwiftUIImageViewer", dependencies: ["Kingfisher"]),
     ]
 )
