@@ -1,8 +1,9 @@
 import SwiftUI
+import Kingfisher
 
 public struct SwiftUIImageViewer: View {
 
-    let image: Image
+    let image: KFImage
 
     @State private var scale: CGFloat = 1
     @State private var lastScale: CGFloat = 1
@@ -10,8 +11,12 @@ public struct SwiftUIImageViewer: View {
     @State private var offset: CGPoint = .zero
     @State private var lastTranslation: CGSize = .zero
 
-    public init(image: Image) {
-        self.image = image
+    public init(imageURL: URL) {
+        self.image = KFImage(imageURL)
+    }
+
+    public init(imageURLString: String) {
+        self.image = KFImage(URL(string: imageURLString))
     }
 
     public var body: some View {
