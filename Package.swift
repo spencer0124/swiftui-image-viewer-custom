@@ -9,6 +9,9 @@ let package = Package(
     products: [
         .library(name: "SwiftUIImageViewer", targets: ["SwiftUIImageViewer"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.0.0")
+    ],
     targets: [
         .target(name: "SwiftUIImageViewer", dependencies: []),
     ]
