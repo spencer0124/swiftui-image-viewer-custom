@@ -2,8 +2,7 @@ import SwiftUI
 import Kingfisher
 
 public struct SwiftUIImageViewer2: View {
-
-    let image: KFImage
+    private let imageContent: AnyView
 
     @State private var scale: CGFloat = 1
     @State private var lastScale: CGFloat = 1
