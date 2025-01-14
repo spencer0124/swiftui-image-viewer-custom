@@ -11,20 +11,34 @@ public struct SwiftUIImageViewer2: View {
     @State private var offset: CGPoint = .zero
     @State private var lastTranslation: CGSize = .zero
 
+     public init(image: Image) {
+        self.imageContent = AnyView(
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        )
+    }
+
     public init(imageURL: URL) {
-        self.image = KFImage(imageURL)
+        self.imageContent = AnyView(
+            KFImage(imageURL)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        )
     }
 
     public init(imageURLString: String) {
-        self.image = KFImage(URL(string: imageURLString))
+        self.imageContent = AnyView(
+            KFImage(URL(string: imageURLString))
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        )
     }
 
-    public var body: some View {
+     public var body: some View {
         GeometryReader { proxy in
             ZStack {
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                imageContent
                     .scaleEffect(scale)
                     .offset(x: offset.x, y: offset.y)
                     .gesture(makeDragGesture(size: proxy.size))
