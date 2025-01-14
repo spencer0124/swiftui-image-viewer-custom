@@ -1,7 +1,7 @@
 import SwiftUI
 import Kingfisher
 
-public struct SwiftUIImageViewer: View {
+public struct SwiftUIImageViewer2: View {
 
     let image: KFImage
 
