@@ -18,6 +18,22 @@ public struct SwiftUIImageViewer2: View {
         )
     }
 
+    public init(uiImage: UIImage?) { // UIImage? 타입으로 변경
+        if let uiImage = uiImage { // uiImage가 nil이 아닌 경우
+            self.imageContent = AnyView(
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            )
+        } else { // uiImage가 nil인 경우 빈 이미지를 표시
+            self.imageContent = AnyView(
+                Image(systemName: "photo") // 혹은 다른 빈 이미지를 사용할 수 있습니다.
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            )
+        }
+    }
+
     public init(imageURL: URL) {
         self.imageContent = AnyView(
             KFImage(imageURL)
